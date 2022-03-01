@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Student Name: Phillip Harden -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript OOP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <h1>Assignment 1</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrapper">
+            <section id="form">
+                <h2>Cardio Zones</h2>
+                <p>Let's determine your maximum heart rate and display your cardio zones! </p>
+
+                <input type="text" id="gym" value="Gold's Gym" >
+                <input type="text" id="name" placeholder="Name..." required>
+                <input type="text" id="age" placeholder="Age..." required>
+                <input type="text" id="weight" placeholder="Weight..." required>
+               
+                <div id="button">
+                    <button class="myButton">Submit</button>
+                </div>
+                <!-- <p id="output">Outout goes here!</p> -->
+            </section>
+
+            <section id="displayInfo">
+                <table id="display">
+                    <tr>
+                        <th>Gym(static)</th>
+                        <th>Name</th>                        
+                        <th>Age</th>
+                        <th>Weight</th>
+                        <th>Max HR</th>
+                        <th>Fat Burning 60-70%</th>
+                        <th>Aerobic 70-80%</th>
+                        <th>Anaerobic 80-90%</th>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrapper">
+            <p>&copy; Phillip Harden 2022</p>
+        </div>
+    </footer>
+
+    <!-- script tag is always at the bottom, always use defer but only in the main.js not every js file -->
+    <script defer src="main.js"></script>
+    <script src="utils.js"></script>
+    <script src="person.js"></script>
+    <script src="trainer.js"></script>
+    <script src="heartRate.js"></script>
+
+</body>
+
+</html>
+<!-- 
+
+
+Four classes minimum (2 concrete/derived classes, the Abstract/Super class, the class for composition and the Utility Class)
+
+
+
+A static property is used.  Make sure you indicate by commenting the top of your HTML file what line of code contains the static property. 
+
+All of your JavaScript is adequately commented. All methods and member variables are explained in comments just above their declarations
+
+Show one level of inheritance 
+
+Composition and/or aggregation is used. The 'owner' object has at least one object. Make sure some property is outputted of the the child object. (The child object is the object that the owner object has instantiated)
+
+A looping process is used to create instances of at least three of your objects
+
+Store all references of the objects in a Data Structure (array / list)
+
+All classes must make sense and serve a purpose to the scenario that you choose
+
+All instantiated classes must have at least 1 instance / member variable(property). Make sure the values for at least one of the instance variables value is unique to each instance such as "name"
+
+After all objects are instantiated, invoke a function named displayInfo() that will display all the objects and their instance variables and a static variable in browser using HTML
+
+The data being used is collected from an HTML form for the JavaScript version. Do not hard code the data.
+The output is styled using CSS
+
+Confirmation message each time user adds something to the array. Ex: "Employee added". Do not use the alert function to accomplish this! 
+-->
