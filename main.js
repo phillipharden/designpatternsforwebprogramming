@@ -1,63 +1,63 @@
 class App{
     constructor(){
         console.log("App Created");        
-        //document.getElementById("#gym").value = Person.gym;     
         this.submit();
     }
 
     submit(){
         const btn = document.querySelector("#button");
-        btn.addEventListener("click", e => this.getData(e));
+        btn.addEventListener("click", e => this.displayInfo(e));
     }
 
-    getData(e){
+    displayInfo(){
+        console.log("click");
+        // the first row is index 0 which is the name of each cell (Name, Age, etc.)
         let row = 1;
-        // instanciate a new Person
-        let newPerson = new Person();
-       // let gym = document.getElementById("#gym").value;
-        //Person.gym = gym;
-        newPerson.name = document.getElementById("#name").value;
-        Person.age = document.getElementById("#age").value;
-        Person.weight = document.getElementById("#weight").value;
+        // newPerson.name = document.getElementById("#name").value;
 
-        // let name = document.getElementById("#name").value;
-        // let age = document.getElementById("#age").value;
-        // let grade = document.getElementById("#weight").value;
+        let gym = document.getElementById("gym").value;
+        let name = document.getElementById("name").value;
+        let age = document.getElementById("age").value;        
 
-        // if (!name || !age || !weight){
-        //     alert("Please enter all info");
-        //     return;
-        // }
+        if (!name || !age || !gym){
+            alert("Please enter all info");
+            return;
+        }
 
+        let maxHr = Utils.getMaxHR(age);
+        let fatBurn = Utils.getFatBurning(maxHr);
+        let aerobic = Utils.getAerobic(maxHr);
+        let anaerobic = Utils.getAnaerobic(maxHr);
+
+        // accessing the table by the ID
         let display = document.getElementById("display");
 
-        var newRow = display.insertRow(row);
+        // insert a row into the table
+        let newRow = display.insertRow(row);
+
         let cell1 = newRow.insertCell(0);
         let cell2 = newRow.insertCell(1);
         let cell3 = newRow.insertCell(2);
+        let cell4 = newRow.insertCell(3);
+        let cell5 = newRow.insertCell(4);
+        let cell6 = newRow.insertCell(5);
+        let cell7 = newRow.insertCell(6);
 
-        cell1.innerHTML = name;
-        cell2.innerHTML = age;
-        cell3.innerHTML = grade;
-        cell4.innerHTML = gym;
+        cell1.innerHTML = gym;
+        cell2.innerHTML = name;
+        cell3.innerHTML = age; 
+        cell4.innerHTML = maxHr;
+        cell5.innerHTML = fatBurn;
+        cell6.innerHTML = aerobic; 
+        cell7.innerHTML = anaerobic;
 
-        //console.log("click click click");
-        // display is a different method, it is for an event Listener, no access to other methods (this)
-        // this refers to the btn now
-        // const output = document.querySelector("#output");
-        // output.innerHTML = "Hello "+ e;
+        row++;
     }
 } 
 
 (()=>{
     const app = new App();
 })();
-
-
-
-
-
-
 
 
 // all code in this class will be inside a CLASS

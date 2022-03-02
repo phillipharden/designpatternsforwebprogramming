@@ -10,16 +10,18 @@ class Utils{
     static getFatBurning(h){
         let sixty = h * .6;
         let seventy = h * .7;
-        return sixty+"-"+seventy+"%";
+        return Math.round(sixty)+"-"+Math.round(seventy)+"bpm";
     }
 
     static getAerobic(h){
+        let seventy = h * .7;
         let eighty = h * .8;
-        return seventy+"-"+eighty+"%";
+        return Math.round(seventy)+"-"+Math.round(eighty)+"bpm";
     }
 
     static getAnaerobic(h){
+        let eighty = h * .8;
         let ninety = h * .9;
-        return eighty+"-"+ninety+"&";
+        return Math.round(eighty)+"-"+Math.round(ninety)+"bpm";
     }  
 }
