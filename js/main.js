@@ -1,178 +1,67 @@
-class App {
+class Main {
     constructor() {
-        console.log("App Created");
-        // create the array for the list of people
-        let people = [];
-        this.done();
-        this.add();
+        this.people = [];
+        console.log("Main created");
+        document.querySelector("#add").addEventListener("click", (e) => this.onClick(e));
+        document.querySelector("#done").addEventListener("click", e => this.displayInfo(e));
+    }
+    onClick(e) {
+        // prevents from refreshing the page
+        e.preventDefault();
+
+        const gym = document.querySelector("#gym").value;
+        const name = document.querySelector("#name").value;
+        const age = document.querySelector("#age").value;
+        const machine = document.querySelector("#machine").value;
+        const newPerson = new Person(gym, name, age, machine);
+        this.people.push(newPerson);
+        // inside an event listener (call back function) so "this" is the button not the Main
+        // refers to what ever is left of the . before eventlistener
+        // console.log("Clicked",e);
+        // console.log("Clicked " , this.food, e.target);
     }
 
-    add() {
-        const addBtn = document.querySelector("#add");
-        addBtn.addEventListener("click", e => this.addPerson(e));
-    }
+    displayInfo(e) {
+        this.people.forEach((p) => {
+            console.log(p.gym);
+            console.log(p.name);
+            console.log(p.age);
+            console.log(p.machine);
 
-    done() {
-        const doneBtn = document.querySelector("#done");
-        doneBtn.addEventListener("click", e => this.done(e));
-    }
+            // the first row is index 0 which is the name of each cell (Name, Age, etc.)
+            let row = 1;
 
-    addPerson(people) {
-        console.log("Person added!");
+            // accessing the table by the ID
+            let display = document.getElementById("display");
 
-        // newPerson.name = document.getElementById("#name").value;
-        //let gym = document.getElementById("gym").value;
-        let name = document.getElementById("name").value;
-        let age = document.getElementById("age").value;
-        let newPerson = new Person(name, age)
-        people.push(newPerson);
-        return people;
-    }
+            // insert a row into the table
+            let newRow = display.insertRow(row);
 
-    done() {
-        console.log("clicked done");
+            // give each cell a name
+            let cell1 = newRow.insertCell(0);
+            let cell2 = newRow.insertCell(1);
+            let cell3 = newRow.insertCell(2);
+            let cell4 = newRow.insertCell(3);
+            let cell5 = newRow.insertCell(4);
+            let cell6 = newRow.insertCell(5);
 
-        // accessing the table by the ID
-        let display = document.getElementById("display");
-        displayInfo();
+            // change the html of each cell
+            cell1.innerHTML = p.gym;
+            cell2.innerHTML = p.name;
+            cell3.innerHTML = p.age;
+            cell4.innerHTML = p.machine
+            cell5.innerHTML = p.maxHr;
+            cell6.innerHTML = p.fatBurn;
 
-        function displayInfo() {
-            people.forEach(function (e) {
-                // insert a row into the table
-                let newRow = display.insertRow(row);
-
-                let cell1 = newRow.insertCell(0);
-                let cell2 = newRow.insertCell(1);
-                let cell3 = newRow.insertCell(2);
-                let cell4 = newRow.insertCell(3);
-                let cell5 = newRow.insertCell(4);
-                let cell6 = newRow.insertCell(5);
-
-                cell1.innerHTML = Person.gym;
-                cell2.innerHTML = obj.name;
-                cell3.innerHTML = obj.age;
-                cell4.innerHTML = obj.machine;
-                cell5.innerHTML = obj.maxHr;
-                cell6.innerHTML = obj.fatBurn;
-
-                row++;
-
-                console.log(obj.name + " diplayed.")
-            })
-
-        }
-
-
-
-
-
-
-
-
-
-
-        // // the first row is index 0 which is the name of each cell (Name, Age, etc.)
-        // let row = 1;        
-
-        // let gym = document.getElementById("gym").value;
-        // let name = document.getElementById("name").value;
-        // let age = document.getElementById("age").value;        
-
-        // if (!name || !age || !gym){
-        //     alert("Please enter all info");
-        //     return;
-        // }
-
-        // let maxHr = Utils.getMaxHR(age);
-        // let fatBurn = Utils.getFatBurning(maxHr);
-        // // let aerobic = Utils.getAerobic(maxHr);
-        // // let anaerobic = Utils.getAnaerobic(maxHr);
-
-        // // accessing the table by the ID
-        // let display = document.getElementById("display");
-
-        // // insert a row into the table
-        // let newRow = display.insertRow(row);
-
-        // let cell1 = newRow.insertCell(0);
-        // let cell2 = newRow.insertCell(1);
-        // let cell3 = newRow.insertCell(2);
-        // let cell4 = newRow.insertCell(3);
-        // let cell5 = newRow.insertCell(4);
-        // // let cell6 = newRow.insertCell(5);
-        // // let cell7 = newRow.insertCell(6);
-
-        // cell1.innerHTML = gym;
-        // cell2.innerHTML = name;
-        // cell3.innerHTML = age; 
-        // cell4.innerHTML = maxHr;
-        // cell5.innerHTML = fatBurn;
-        // // cell6.innerHTML = aerobic; 
-        // // cell7.innerHTML = anaerobic;
-
-        // row++;
+            // add another row
+            row++;
+        })
     }
 }
 
-// Automatically starts the App
+
+
+// IIFE - Imediately Invoked Function Expression (needs to be at the bottom)
 (() => {
-    const app = new App();
+    const app = new Main();
 })();
-
-// never use var again, use let or const. 
-// If it is read only use const, if it could change (write) use let
-
-// const student1 = new SuperAthlete("Phillip");
-// console.log(student1.name);
-// console.log(student1.age);
-// console.log(student1.awesome());
-
-// const student2 = new SuperAthlete("Tom");
-// console.log(student2.awesome());
-
-
-// create/run a function -----------------------------------
-// greeting2 = (n)=>{
-//     return "Hello " + n;
-// }
-
-// console.log(greeting2("Tom"));
-
-
-
-
-
-// -----------------------------------
-
-
-
-// class Main{
-//     constructor(){
-//         console.log('Demo Started');
-
-//         this.kennel = [];
-//         for (let i =0; i < 100; i++){ 
-//             let dog = new Dog();
-//             dog.name ="Max" + (i+1);
-//             this.kennel.push(dog);
-//         }
-//         this.displayDogs();
-//     }
-
-//     static getInstance(){
-//         if(!Main._instance){
-//             Main._instance = new Main();
-//             return Main._instance;    
-//         }
-//         else{
-//             throw "Main Already Exists";
-//         }
-//     }
-
-//     displayDogs(){
-//         console.log("run");
-//         this.kennel.forEach(function(e,i){
-//             console.log(i+1,e.name);
-//         })
-//     }
-// }

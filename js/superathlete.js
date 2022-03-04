@@ -1,7 +1,5 @@
 class SuperAthlete{
     constructor(){
-        console.log("Super Athlete created");
-        
+        console.log("Super Athlete created");        
     }
-
 }
