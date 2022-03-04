@@ -34,25 +34,25 @@ li,
 dl,
 dt,
 dd {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	font-size: 100%;
-	text-decoration: none;
-	font-weight: normal;
-	color: inherit;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 100%;
+    text-decoration: none;
+    font-weight: normal;
+    color: inherit;
+    box-sizing: border-box;
 }
 
 /* Typography Defaults ********************/
 html {
-	font-size: 62.5%;
+    font-size: 62.5%;
 }
 
 body {
-	background-color: #1C0A00;
-	color: #F5F5F5;
-	font: 1.8rem/2 'Cairo', sans-serif;
+    background-color: #1C0A00;
+    color: #F5F5F5;
+    font: 1.8rem/2 'Cairo', sans-serif;
 }
 
 h1,
@@ -61,12 +61,12 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Bebas Neue', cursive;
+    font-family: 'Bebas Neue', cursive;
     color: #CC9544;
 }
 
 h1 {
-	font-size: 5rem;
+    font-size: 12rem;
 }
 
 h2 {
@@ -75,31 +75,69 @@ h2 {
 
 a,
 button {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 /* Default Structure **************************/
 .wrapper {
-	margin: 0 auto;
-	width: 120rem;
+    margin: 0 auto;
+    width: 120rem;
 }
 
 /***HEADER******************************************/
 header {
-    background-color: #361500;
+    background: url(../images/banner.png) center no-repeat;
+    height: 25rem;
+    /* text-align: center; */
 }
+
 /***MAIN********************************************/
-/* main{
+/* targetting the first section */
+main section:nth-of-type(1) {
+    margin: 3rem 0;    
+}
 
-} */
+/* centering the h2 & p elements */
+main section:nth-of-type(1) h2, p{
+    text-align: center;   
+}
 
-input{
+#form-div {
+    border: .2rem solid #603601;
+    border-radius: .5rem;
+    background-color: #CC9544;
+    padding: 2rem;
+    width: 50%;
+    margin: 3rem auto 0;
+}
+
+input[type=text],
+select {
     color: #1C0A00;
-    border: .2rem solid #CC9544;
+    border: .2rem solid #361500;
     border-radius: 2rem;
     padding: .3rem 0 .3rem 1rem;
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
 }
 
+.btn {
+    color: #CC9544;
+    background-color: #361500;
+    border: .2rem solid #F5F5F5;
+    width: 12rem;
+    height: 4rem;
+    border-radius: 2rem;
+    margin: 2rem 5rem 1rem 0;
+    text-transform: uppercase;    
+}
+
+.btn:hover {
+    color: #CC9544;
+    background-color: #603601;
+}
 
 table {
     border-collapse: collapse;
@@ -109,59 +147,40 @@ table {
     background-color: #CC9544;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: .2rem solid #603601;
-    padding: .5rem;
+    padding: .2rem 1rem;
 }
 
 th {
-    font-size: 3rem;
+    font-size: 2rem;
+    width: calc(100%/6);
 }
 
 td {
     font-size: 2.5rem;
     color: #1C0A00;
     text-align: center;
+    /* background-color: #603601; */
 }
-
-
-#button{
-background-color: #1C0A00;
-}
-
-.myButton{
-    color: #CC9544;
-    background-color: #361500;
-    border: .2rem solid #F5F5F5;
-    width: 12rem;
-    height: 4rem;
-    border-radius: 2rem;
-    margin: 1rem 0;
-    text-transform: uppercase;
-}
-
-.myButton:hover{
-    color: #361500;
-    background-color: #CC9544;
-}
-
 
 /***FOOTER******************************************/
 footer {
-    position: fixed;
-    /* left: 0; */
     bottom: 0;
     width: 100%;
     background-color: #603601;
     color: white;
     text-align: center;
- }
+    margin: 50rem 0 0 0;
+}
 
- footer p{
-    font-size: 1.4rem;    
+footer p {
+    font-size: 1.4rem;
     color: #1C0A00;
- }
+}
 
- footer p:hover {
+footer p:hover {
     color: #CC9544;
- }
+}

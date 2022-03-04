@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript OOP</title>
+    <title>Assignment 1 - Phillip Harden</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -19,34 +19,51 @@
 
     <main>
         <div class="wrapper">
-            <section id="form">
+            <section>
+
                 <h2>Cardio Zones</h2>
                 <p>Let's determine your maximum heart rate and display your cardio zones! </p>
 
-                <input type="text" id="gym" value="Gold's Gym" >
-                <input type="text" id="name" placeholder="Name..." required>
-                <input type="text" id="age" placeholder="Age..." required>
-               
-                <div id="button">
-                    <button class="myButton">Submit</button>
+                <div id="form-div">
+                    <form>
+
+                        <label for="gym">(static) Gym:</label>
+                        <input type="text" id="gym" value="Gold's Gym" required>
+
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" placeholder="Enter name..." required>
+
+                        <label for="age">Age:</label>
+                        <input type="text" id="age" placeholder="Enter age..." required>
+
+                        <label for="machine">Cardio Machine:</label>
+                        <input type="text" id="machine" placeholder="Enter cardio machine type..." required>
+
+                        <button id="add" class="btn" type="submit">Add</button>
+                        <button id="done" class="btn" type="button">Done</button>
+
+                    </form>
                 </div>
-                <!-- <p id="output">Outout goes here!</p> -->
+
             </section>
 
-            <section id="displayInfo">
+            <section>
+
                 <table id="display">
                     <tr>
-                        <th>Gym(static)</th>
-                        <th>Name</th>                        
+                        <th>Gym</th>
+                        <th>Name</th>
                         <th>Age</th>
+                        <th>Machine</th>
                         <th>Max HR</th>
-                        <th>Fat Burning</th>
-                        <th>Aerobic</th>
-                        <th>Anaerobic</th>
+                        <th>Fat Burning Zone</th>
                     </tr>
                 </table>
+
             </section>
+
         </div>
+
     </main>
 
     <footer>
@@ -56,21 +73,17 @@
     </footer>
 
     <!-- script tag is always at the bottom, always use defer but only in the main.js not every js file -->
-    <script defer src="main.js"></script>
-    <script src="utils.js"></script>
-    <script src="person.js"></script>
-    <script src="trainer.js"></script>
-    <script src="heartRate.js"></script>
+    <script defer src="js/main.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/person.js"></script>
+    <script src="js/superathlete.js"></script>
+    <script src="js/machine.js"></script>
 
 </body>
 
 </html>
 <!-- 
-
-
 Four classes minimum (2 concrete/derived classes, the Abstract/Super class, the class for composition and the Utility Class)
-
-
 
 A static property is used.  Make sure you indicate by commenting the top of your HTML file what line of code contains the static property. 
 
@@ -91,6 +104,7 @@ All instantiated classes must have at least 1 instance / member variable(propert
 After all objects are instantiated, invoke a function named displayInfo() that will display all the objects and their instance variables and a static variable in browser using HTML
 
 The data being used is collected from an HTML form for the JavaScript version. Do not hard code the data.
+
 The output is styled using CSS
 
 Confirmation message each time user adds something to the array. Ex: "Employee added". Do not use the alert function to accomplish this! 
