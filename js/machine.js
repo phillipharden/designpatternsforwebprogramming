@@ -1,6 +1,6 @@
 class Machine{
-    constructor(t){
+    constructor(n){
         console.log("Machine created!");
-        this.type = t;
+        this.name = n;
     }
 }

@@ -1,18 +1,18 @@
 class Main {
     constructor() {
         this.people = [];
-        console.log("Main created");
-        document.querySelector("#add").addEventListener("click", (e) => this.onClick(e));
+        console.log("Main app created");
+        document.querySelector("#add").addEventListener("click", e => this.onClick(e));
         document.querySelector("#done").addEventListener("click", e => this.displayInfo(e));
     }
 
     onClick(e) {
         // prevents from refreshing the page
         e.preventDefault();
+        // boolean to determine if everything is valid before creating a Person
         const valid = validateForm();
-
-        function validateForm()  {
-      
+        // Validation method
+        function validateForm()  {      
             if( document.pageForm.gym.value == "" ) {
                alert( "Please enter the name of your gym!" );
                document.pageForm.gym.focus() ;
@@ -26,7 +26,7 @@ class Main {
             if( document.pageForm.age.value == "" || isNaN( document.pageForm.age.value ) ||
                document.pageForm.age.value <1 || document.pageForm.age.value >100) {
                
-               alert( "Please enter your age. Must be between 1-100." );
+               alert( "Please enter your age. Must be a number between 1-100." );
                document.pageForm.age.focus() ;
                return false;
             }
@@ -36,12 +36,13 @@ class Main {
             }
             return( true );
          }
+         // if everything is valid, then we can create the Person
          if(valid){
             const gym = document.querySelector("#gym").value;
             const name = document.querySelector("#name").value;
             const age = document.querySelector("#age").value;
             const machine = document.querySelector("#machine").value;
-            const newPerson = new Person(gym, name, age, machine);
+            const newPerson = new Athlete(gym, name, age, machine);
             this.people.push(newPerson);
             // inside an event listener (call back function) so "this" is the button not the Main
             // refers to what ever is left of the . before eventlistener
@@ -55,7 +56,7 @@ class Main {
             console.log(p.gym);
             console.log(p.name);
             console.log(p.age);
-            console.log(p.machine);
+            console.log(p.machine.name);
 
             // the first row is index 0 which is the name of each cell (Name, Age, etc.)
             let row = 1;
@@ -78,8 +79,8 @@ class Main {
             cell1.innerHTML = p.gym;
             cell2.innerHTML = p.name;
             cell3.innerHTML = p.age;
-            cell4.innerHTML = p.machine
-            cell5.innerHTML = p.maxHr;
+            cell4.innerHTML = p.machine.name;
+            cell5.innerHTML = p.maxHr+"bpm";
             cell6.innerHTML = p.fatBurn;
 
             // add another row
@@ -87,8 +88,6 @@ class Main {
         })
     }
 }
-
-
 
 // IIFE - Imediately Invoked Function Expression (needs to be at the bottom)
 (() => {
