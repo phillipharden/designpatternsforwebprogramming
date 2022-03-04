@@ -5,20 +5,49 @@ class Main {
         document.querySelector("#add").addEventListener("click", (e) => this.onClick(e));
         document.querySelector("#done").addEventListener("click", e => this.displayInfo(e));
     }
+
     onClick(e) {
         // prevents from refreshing the page
         e.preventDefault();
+        const valid = validateForm();
 
-        const gym = document.querySelector("#gym").value;
-        const name = document.querySelector("#name").value;
-        const age = document.querySelector("#age").value;
-        const machine = document.querySelector("#machine").value;
-        const newPerson = new Person(gym, name, age, machine);
-        this.people.push(newPerson);
-        // inside an event listener (call back function) so "this" is the button not the Main
-        // refers to what ever is left of the . before eventlistener
-        // console.log("Clicked",e);
-        // console.log("Clicked " , this.food, e.target);
+        function validateForm()  {
+      
+            if( document.pageForm.gym.value == "" ) {
+               alert( "Please enter the name of your gym!" );
+               document.pageForm.gym.focus() ;
+               return false;
+            }
+            if( document.pageForm.name.value == "" ) {
+               alert( "Please enter your name!" );
+               document.pageForm.name.focus() ;
+               return false;
+            }
+            if( document.pageForm.age.value == "" || isNaN( document.pageForm.age.value ) ||
+               document.pageForm.age.value <1 || document.pageForm.age.value >100) {
+               
+               alert( "Please enter your age. Must be between 1-100." );
+               document.pageForm.age.focus() ;
+               return false;
+            }
+            if( document.pageForm.machine.value == "" ) {
+               alert( "Please enter a cardio machine type!" );
+               return false;
+            }
+            return( true );
+         }
+         if(valid){
+            const gym = document.querySelector("#gym").value;
+            const name = document.querySelector("#name").value;
+            const age = document.querySelector("#age").value;
+            const machine = document.querySelector("#machine").value;
+            const newPerson = new Person(gym, name, age, machine);
+            this.people.push(newPerson);
+            // inside an event listener (call back function) so "this" is the button not the Main
+            // refers to what ever is left of the . before eventlistener
+            // console.log("Clicked",e);
+            // console.log("Clicked " , this.food, e.target);
+         }   
     }
 
     displayInfo(e) {

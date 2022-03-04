@@ -25,23 +25,23 @@
                 <p>Let's determine your maximum heart rate and display your cardio zones! </p>
 
                 <div id="form-div">
-                    <form>
+                    <form name="pageForm">
 
                         <label for="gym">(static) Gym:</label>
                         <!-- <input type="text" id="gym" value="Gold's Gym" required> -->
-                        <input type="text" id="gym" required>
+                        <input type="text" id="gym" name="gym" required>
 
                         <label for="name">Name:</label>
-                        <input type="text" id="name" placeholder="Enter name..." required>
+                        <input type="text" id="name" name="name" placeholder="Enter name..." required>
 
                         <label for="age">Age:</label>
-                        <input type="text" id="age" placeholder="Enter age..." required>
+                        <input type="text" id="age" name="age" placeholder="Enter age..." required>
 
                         <label for="machine">Cardio Machine:</label>
-                        <input type="text" id="machine" placeholder="Enter cardio machine type..." required>
+                        <input type="text" id="machine" name="machine" placeholder="Enter cardio machine type..." required>
 
-                        <button id="add" class="btn" type="submit">Add</button>
-                        <button id="done" class="btn" type="button">Done</button>
+                        <button id="add" name="add" class="btn" type="submit">Add</button>
+                        <button id="done" name="done" class="btn" type="button">Done</button>
 
                     </form>
                 </div>
