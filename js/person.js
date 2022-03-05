@@ -1,9 +1,8 @@
 class Person {
     constructor(g, n, a) {
+        //Confirmation that the Person is created
         console.log("Person created!");
         this.gym = g;
-        // Static Variable
-        // Person.gym = "Gold's Gym";
         this.name = n;
         this.age = a;
          
@@ -13,15 +12,20 @@ class Person {
     }
 }
 
+// Static Variable
+Person.gym = "Gold's Gym";
+
 // Inheritence
 class Athlete extends Person {
-    constructor(g,n,a,m,s) {
+    constructor(g,n,a,c) {
         // run the constructor of the super class (Person)
         super(g,n,a); 
-        const machineObj = new Machine(m);
-        this.machine = machineObj;
+        // instantiate a Cardio object
+        const cardioObj = new Cardio(c);
+        this.cardio = cardioObj;
         this.maxHr = Utils.getMaxHR(a); 
         this.fatBurn = Utils.getFatBurning(this.maxHr);  
+        //Confirmation that the Athlete is created
         console.log("Athlete created");
     }
 }
