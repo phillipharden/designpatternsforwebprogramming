@@ -48,37 +48,45 @@ class Main {
             let nameEntry = document.querySelector("#name").value;
             // If the name does not say Super Athlete, then create an Athlete
             if (nameEntry != "Super Athlete") {
+                // get the gym entry value
+                const gym = document.querySelector("#gym").value;
+                Person.gym = gym;
                 // get the age entry value
                 const age = document.querySelector("#age").value;
                 // get the age cardio value
                 const cardio = document.querySelector("#cardio").value;
                 // instantiate an Athlete object
-                const newPerson = new Athlete(gym, nameEntry, age, cardio);
+                const newPerson = new Athlete(nameEntry, age, cardio);
                 // add the new object to the Person list/array
                 this.people.push(newPerson);
             }
             // If the name matched SUper Athlete, then create a SuperAthlete
             if (nameEntry == "Super Athlete") {
+                // get the gym entry value
+                const gym = document.querySelector("#gym").value;
+                Person.gym = gym;
                 // get the age entry value
                 const age = document.querySelector("#age").value;
                 // get the cardio entry value
                 const cardio = document.querySelector("#cardio").value;
                 // instantiate a SuperAthlete object
-                const newPerson = new SuperAthlete(gym, nameEntry, age, cardio);
+                const newPerson = new SuperAthlete(nameEntry, age, cardio);
                 // add the new object to the Person list/array
                 this.people.push(newPerson);
             }
 
             //Reset the fields
-            document.getElementById("gym").value = Person.gym;
-            document.getElementById("name").value = "";
-            document.getElementById("age").value = "";
-            document.getElementById("cardio").value = "";
+            this.resetFields();
         }
     }
 
-// Method to Display the info
+    // Method to Display the info
     displayInfo(e) {
+        //clear the feilds if they allready exist
+        document.getElementById('display').innerHTML = '';
+        // Add the table header row
+        document.getElementById("table-section").innerHTML='<table id="display"><tr><th>Gym</th><th>Name</th><th>Age</th><th>Type Of Cardio</th><th>Max HR</th><th>Fat Burning Zone</th></tr></table>';  
+          
         // loop through the list of Person, Athelete & SuperAthlete objects
         this.people.forEach((p) => {
             // create a variable to hold the value of the static variable to check to make sure thatit is not empty
@@ -122,6 +130,10 @@ class Main {
             row++;
         })
         //Reset the fields
+        this.resetFields();
+    }
+
+    resetFields(){
         document.getElementById("gym").value = Person.gym;
         document.getElementById("name").value = "";
         document.getElementById("age").value = "";

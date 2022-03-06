@@ -1,7 +1,7 @@
 class SuperAthlete extends Person{
-    constructor(g,n,a,c) {
+    constructor(n,a) {
         // run the constructor of the super class (Person)
-        super(g,n,a); 
+        super(n,a); 
         //Normal rules do not apply to the Super Athlete
         this.age = "21 Forever!"
         // Instantiate a cardio object with a super power of leaping buildings

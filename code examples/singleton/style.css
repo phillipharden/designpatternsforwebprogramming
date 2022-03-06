@@ -1,0 +1,115 @@
+/* COLORS 
+https://colorhunt.co/palette/0e185f2fa4ff00ffdde8ffc2
+Darkest Color: #0E185F
+Dark Color: #2FA4FF
+Light Color: #603601
+Lightest Color: #00FFDD
+Whitesmoke: #E8FFC2
+*/
+
+/* Google Fonts *************************/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo&display=swap');
+
+/* CSS Reset *********************************/
+body,
+nav,
+main,
+section,
+footer,
+article,
+form,
+button,
+textarea,
+button,
+input,
+h1,
+h2,
+h3,
+p,
+a,
+time,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 100%;
+    text-decoration: none;
+    font-weight: normal;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+/* Typography Defaults ********************/
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #00FFDD;
+    color: #0E185F;
+    font: 1.8rem/2 'Cairo', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Bebas Neue', cursive;
+    color: #CC9544;
+}
+
+h1 {
+    font-size: 12rem;
+    color: #2FA4FF;
+}
+
+h2 {
+    font-size: 4rem;
+    color: #0E185F;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+/* Default Structure **************************/
+.wrapper {
+    margin: 0 auto;
+    width: 120rem;
+}
+
+/***HEADER******************************************/
+header {
+    background-color: #0E185F;
+    height: 25rem;
+}
+
+/***MAIN********************************************/
+
+
+/***FOOTER******************************************/
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #2FA4FF;
+    color: white;
+    text-align: center;
+    margin: 50rem 0 0 0;
+}
+
+footer p {
+    font-size: 1.4rem;
+    color: #00FFDD;
+}
+
+footer p:hover {
+    color: #0E185F;
+}

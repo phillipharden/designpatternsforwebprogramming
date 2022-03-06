@@ -1,8 +1,8 @@
 class Person {
-    constructor(g, n, a) {
+    constructor(n, a) {
         //Confirmation that the Person is created
         console.log("Person created!");
-        this.gym = g;
+        //this.gym = g;
         this.name = n;
         this.age = a;
          
@@ -17,9 +17,9 @@ Person.gym = "Gold's Gym";
 
 // Inheritence
 class Athlete extends Person {
-    constructor(g,n,a,c) {
+    constructor(n,a,c) {
         // run the constructor of the super class (Person)
-        super(g,n,a); 
+        super(n,a); 
         // instantiate a Cardio object
         const cardioObj = new Cardio(c);
         this.cardio = cardioObj;
