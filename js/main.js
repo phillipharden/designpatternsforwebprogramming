@@ -59,6 +59,9 @@ class Main {
                 const newPerson = new Athlete(nameEntry, age, cardio);
                 // add the new object to the Person list/array
                 this.people.push(newPerson);
+                //Confirmation that the Super Athlete was added to the array
+                console.log("Athlete added to the array");
+                window.confirm("Athlete added to the array");
             }
             // If the name matched SUper Athlete, then create a SuperAthlete
             if (nameEntry == "Super Athlete") {
@@ -73,6 +76,9 @@ class Main {
                 const newPerson = new SuperAthlete(nameEntry, age, cardio);
                 // add the new object to the Person list/array
                 this.people.push(newPerson);
+                //Confirmation that the Super Athlete was added to the array
+                console.log("Super Athlete added to the array");
+                window.confirm("Super Athlete added to the array");
             }
 
             //Reset the fields
@@ -145,3 +151,9 @@ class Main {
 (() => {
     const app = new Main();
 })();
+
+// A looping process is used to create instances of at least three of your objects
+
+// Four classes minimum (2 concrete/derived classes, the Abstract/Super class, the class for composition and the Utility Class)
+
+// Composition and/or aggregation is used. The 'owner' object has at least one object. Make sure some property is outputted of the the child object. (The child object is the object that the owner object has instantiated)

@@ -1,11 +1,10 @@
+//Static variable is on line 15
 class Person {
     constructor(n, a) {
         //Confirmation that the Person is created
         console.log("Person created!");
-        //this.gym = g;
         this.name = n;
-        this.age = a;
-         
+        this.age = a;         
     }
     awesomePerson() {
         return '${this.name} is awesome!';
