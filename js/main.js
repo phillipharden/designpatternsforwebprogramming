@@ -4,7 +4,7 @@
 class Controller {
     constructor() {
         //Confirmation that the controller is working
-        console.log("Singleton/Controller created");
+        console.log("Singleton / Controller created");
 
         this.model = new Model();
         this.view = new View();
@@ -22,7 +22,8 @@ class Controller {
         }
     }
     onClick(e) {
-        console.log("Clicked");
+        // Confirmation of Submit being clicked
+        console.log("Submit was clicked");
 
         //Select all values from fields
         const data = document.querySelectorAll("input");
@@ -65,8 +66,7 @@ class Controller {
 // Model - Manages the data of an application ################################################################################################
 class Model {
     constructor() {
-        console.log("model created");
-        document.addEventListener("controller_done", e => this.process(e));
+        console.log("Model created");
     }
 
     // The Model class uses at least one static method from your custom Utility class
@@ -79,7 +79,7 @@ class Model {
 // View - A visual representation of the model (HTML) ################################################################################################
 class View {
     constructor() {
-        console.log("view created");
+        console.log("View created");
         document.addEventListener("controller_done", e => this.display(e));
     }
     display(e) {
@@ -89,11 +89,11 @@ class View {
         document.getElementById("table-section").innerHTML = '<table id="display"><tr><th>Name</th><th>Age</th><th>Weight</th><th>Height</th><th>BMR</th></tr></table>';
 
         // Confirmation that the object values are displaying properly
-        console.log(e.dataObject.name);
-        console.log(e.dataObject.age);
-        console.log(e.dataObject.weight);
-        console.log(e.dataObject.height);
-        console.log(e.dataObject.bmr);
+        console.log("Name: " + e.dataObject.name);
+        console.log("Age: " + e.dataObject.age);
+        console.log("Weight: " + e.dataObject.weight);
+        console.log("Height: " + e.dataObject.height);
+        console.log("BMR: " + e.dataObject.bmr);
 
         // the first row is index 0 which is the name of each cell (Name, Age, etc.)
         let row = 1;
