@@ -86,7 +86,7 @@ class View {
         e.preventDefault();
 
         // Add the table header row
-        document.getElementById("table-section").innerHTML = '<table id="display"><tr><th>Name</th><th>Age</th><th>Weight (kilograms)</th><th>Height (centimeters)</th><th>BMR</th></tr></table>';
+        document.getElementById("table-section").innerHTML = '<table id="display"><tr><th>Name</th><th>Age</th><th>Weight</th><th>Height</th><th>BMR</th></tr></table>';
 
         // Confirmation that the object values are displaying properly
         console.log(e.dataObject.name);
