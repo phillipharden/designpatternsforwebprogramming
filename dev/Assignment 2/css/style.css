@@ -1,0 +1,200 @@
+/* COLORS 
+https://colorhunt.co/palette/064635519259f0bb62f4eea9
+#064635 -Very dark cyan - lime green
+#519259 - Mostly desaturated dark lime green
+#F0BB62 - Soft orange
+#F4EEA9 - Very soft yellow
+Whitesmoke: #F5F5F5
+*/
+
+/* Google Fonts *************************/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo&display=swap');
+
+/* CSS Reset *********************************/
+body,
+nav,
+main,
+section,
+footer,
+article,
+form,
+button,
+textarea,
+button,
+input,
+h1,
+h2,
+h3,
+p,
+a,
+time,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 100%;
+    text-decoration: none;
+    font-weight: normal;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+/* Typography Defaults ********************/
+html {
+    font-size: 62.5%;
+}
+
+body {
+    /* background-color: #F4EEA9; */
+    color: #064635;
+    font: 1.8rem/2 'Cairo', sans-serif;
+    background: #F4EEA9 url(../images/background.png) no-repeat fixed center;
+    /* Photo by Lukas from Pexels - Gray Dumbbell Beside Wall */
+    background-size: cover;
+    /* background-position: center; */
+
+/* 
+    When using the shorthand property the order of the property values is:
+        background-color 
+        background-image 
+        background-repeat 
+        background-attachment 
+        background-position */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Bebas Neue', cursive;
+    color: #519259;
+}
+
+h1 {
+    font-size: 12rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+/* Default Structure **************************/
+.wrapper {
+    margin: 0 auto;
+    width: 120rem;
+}
+
+/***HEADER******************************************/
+header {
+    height: 20rem;
+    background-color: #F0BB62;
+    /* text-align: center; */
+}
+
+/***MAIN********************************************/
+/* targetting the first section */
+main section:nth-of-type(1) {
+    margin: 3rem 0;
+}
+
+/* centering the h2 & p elements */
+main section:nth-of-type(1) h2,
+p {
+    text-align: center;
+}
+
+#form-div {
+    border: .2rem solid #064635;
+    border-radius: .5rem;
+    background-color: #519259;
+    padding: 2rem;
+    width: 50%;
+    margin: 3rem auto 0;
+}
+
+input[type=text],
+input[type=number],
+select {
+    color: #519259;
+    border: .2rem solid #F0BB62;
+    border-radius: 2rem;
+    padding: .3rem 0 .3rem 1rem;
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.btn {
+    color: #F0BB62;
+    background-color: #064635;
+    border: .2rem solid #F0BB62;
+    width: 12rem;
+    height: 4rem;
+    border-radius: 2rem;
+    margin: 2rem 5rem 1rem 0;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    color: #064635;
+    background-color: #F0BB62;
+}
+
+table {
+    border-collapse: collapse;
+    /* width: 50%;
+    height: 50%; */
+    margin: 5rem auto;
+    background-color: #F0BB62;
+}
+
+table,
+th,
+td {
+    border: .2rem solid #519259;
+    padding: .2rem 1rem;
+}
+
+th {
+    font-size: 2rem;
+    width: calc(100%/6);
+}
+
+td {
+    font-size: 2.5rem;
+    color: #064635;
+    text-align: center;
+    background-color: #F4EEA9;
+}
+
+/***FOOTER******************************************/
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #519259;
+    color: white;
+    text-align: center;
+    margin: 50rem 0 0 0;
+}
+
+footer p {
+    font-size: 1.4rem;
+    color: #F4EEA9;
+}
+
+footer p:hover {
+    color: #F0BB62;
+}
