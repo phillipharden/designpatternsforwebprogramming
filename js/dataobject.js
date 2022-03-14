@@ -1,10 +1,9 @@
 class DataObject {
-    constructor(n, a, w, h, b) {
-        console.log("Data Object created in object class!!");
+    constructor(n, a, w, h) {
+        console.log("Data Object has been instantiated.");
         this.name = n;
         this.age = a;
         this.weight = w;
         this.height = h;
-        this.bmr = b;
     }
 }

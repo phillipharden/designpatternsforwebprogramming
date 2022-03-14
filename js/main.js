@@ -21,6 +21,7 @@ class Controller {
             throw "Singleton has already been created!";
         }
     }
+
     onClick(e) {
         // Confirmation of Submit being clicked
         console.log("Submit was clicked");
@@ -31,6 +32,7 @@ class Controller {
         // if everything is valid, then we can create the Person
         if (this.validateForm(data)) {
             e.preventDefault();
+
             // get the name entry value
             let nameEntry = document.querySelector("#name").value;
             // get the age entry value
@@ -39,13 +41,21 @@ class Controller {
             const weight = document.querySelector("#weight").value;
             // get the height value
             const height = document.querySelector("#height").value;
-            // send the data to the model to process the BMR
-            const bmr = this.model.process(age, weight, height);
+
+            // Instantiate an Event
             let evt = new Event("controller_done");
-            // Create the data object with all of the info
-            evt.dataObject = new DataObject(nameEntry, age, weight, height, bmr);
-            // The Data Object should be a part of the the Event data object (the "e" argument in the event handler
+
+            // Instantiate a data object
+            evt.dataObject = new DataObject(nameEntry, age, weight, height);
+
+            // create an Array with the age, wieght & height that is attached to the event
+            evt.bmrData = [age, weight, height]
+
+            // Dispatch the event
             document.dispatchEvent(evt);
+
+            //After everything comes back here, the application will be finished
+            console.log("End of application")
         } else {
             console.log("Form is invalid");
         }
@@ -67,12 +77,27 @@ class Controller {
 class Model {
     constructor() {
         console.log("Model created");
+        document.addEventListener("controller_done", e => this.process(e));
     }
 
     // The Model class uses at least one static method from your custom Utility class
-    process(age, weight, height) {
-        console.log("BMR calculated in the Model process method");
-        return this.bmr = Utils.getBMR(age, weight, height);
+    process(e) {
+        console.log("I hear you Controller, here are the array items: ", e.bmrData[0], e.bmrData[1], e.bmrData[2]);
+
+        // add the bmr to the data object after it gets calculated
+        e.dataObject.bmr = Utils.getBMR(e.bmrData[0], e.bmrData[1], e.bmrData[2]);
+
+        //Show that the BMR was calculated
+        console.log("BMR successfully calcualated: " + e.dataObject.bmr);
+
+        // Instantiate an Event
+        let evt = new Event("model_done");
+
+        // add the data object to the event
+        evt.dataObject = e.dataObject;
+        
+        // Dispatch the event
+        document.dispatchEvent(evt);
     }
 }
 
@@ -80,10 +105,13 @@ class Model {
 class View {
     constructor() {
         console.log("View created");
-        document.addEventListener("controller_done", e => this.display(e));
+        // Listening for the "model_done" Event
+        document.addEventListener("model_done", e => this.display(e));
     }
+
     display(e) {
         e.preventDefault();
+        console.log("I hear you Model, I'll display everything now!");
 
         // Add the table header row
         document.getElementById("table-section").innerHTML = '<table id="display"><tr><th>Name</th><th>Age</th><th>Weight</th><th>Height</th><th>BMR</th></tr></table>';
@@ -121,6 +149,7 @@ class View {
         //Reset the fields
         this.resetFields();
     }
+
     resetFields() {
         document.getElementById("name").value = "";
         document.getElementById("age").value = "";
