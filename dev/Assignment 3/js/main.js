@@ -69,26 +69,29 @@ class Main {
             equipObject.totalPrice = Utils.getTotalPrice(price);
             this.equipList.push(equipObject);
 
+            // Remove the confirmtion sections
             // Remove current p with the id of "text-confirmation"
-            const p = document.getElementById("text-confirmation");
-            p.parentNode.removeChild(p);
-
+            const pRemove = document.getElementById("text-confirmation");
+            pRemove.parentNode.removeChild(pRemove);
             // Remove current image with the id of "img-confirmation"
-            const imageRemove = document.getElementById("img-confirmation");
-            imageRemove.parentNode.removeChild(imageRemove);
+            const imgRemove = document.getElementById("img-confirmation");
+            imgRemove.parentNode.removeChild(imgRemove);
 
             // Send the new object's image source & name into the function to display confirmation
             showImage(equipObject.image, equipObject.name);
 
+            // funtion to create the text and image confirmation
             function showImage(src, name) {
+                //Text
                 const added = " added!";
                 const p = document.createElement("p");
+                p.id = "text-confirmation";
                 const node = document.createTextNode(name + added);
                 p.appendChild(node);
                 const element = document.getElementById("confirmation");
                 element.appendChild(p);
-                p.id = "text-confirmation";
 
+                // Image
                 const img = new Image();
                 img.src = src;
                 img.alt = name;
@@ -96,10 +99,8 @@ class Main {
                 document.getElementById("confirmation").appendChild(img);
             }
 
-
-
-            //After everything comes back here, the application will be finished
-            console.log("End of application")
+            //Once the program get here, the current tasks will be finished
+            console.log("End of of tasks for now")
         } else {
             console.log("Form is invalid");
         }
@@ -118,14 +119,13 @@ class Main {
         return validate;
     }
     displayInfo(e) {
-
         // Remove the confirmtion sections
         // Remove current p with the id of "text-confirmation"
-        const p = document.getElementById("text-confirmation");
-        p.parentNode.removeChild(p);
+        const pRemove = document.getElementById("text-confirmation");
+        pRemove.parentNode.removeChild(pRemove);
         // Remove current image with the id of "img-confirmation"
-        const imageRemove = document.getElementById("img-confirmation");
-        imageRemove.parentNode.removeChild(imageRemove);
+        const imgRemove = document.getElementById("img-confirmation");
+        imgRemove.parentNode.removeChild(imgRemove);
 
         //clear the fields if they allready exist
         document.getElementById('display').innerHTML = '';
@@ -156,8 +156,8 @@ class Main {
 
             // change the html of each cell
             cell1.innerHTML = o.name;
-            cell2.innerHTML = "$"+o.price;
-            cell3.innerHTML = "$"+o.totalPrice;
+            cell2.innerHTML = "$" + o.price;
+            cell3.innerHTML = "$" + o.totalPrice;
 
             // add another row
             row++;
