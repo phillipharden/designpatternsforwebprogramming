@@ -1,8 +1,9 @@
+// Utility class with at least one static method
 class Utils {
     constructor() {}
-    // method to calculate the BMR    
-    static getBMR(age, weight, height) {
-        // 66 + (6.23 x weight in pounds) + (12.7 x height in inches) - (6.8 x age in years)
-        return Math.round(66 + (6.23 * weight) + (12.7 * height) - (6.8 * age));
+    // method to calculate price after sales tax  
+    static getTotalPrice(price) {
+        // price x 6.5% + price
+        return (price * 0.065 + price).toFixed(2);
     }
 }

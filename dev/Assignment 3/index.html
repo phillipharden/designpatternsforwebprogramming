@@ -1,0 +1,79 @@
+<!-- Student Name: Phillip Harden -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2 - Phillip Harden</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <h1>Assignment 2- Factory</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrapper">
+            <section>
+
+                <h2>Let's get a new piece of cardio equipment</h2>
+                <p>You can create a treadmill, elliptical, or a stationary bike. Just enter the type of cardio equipment you'd like to create along with the price and we will calculate the total cost after tax.
+                </p>
+                <div id="image"></div>
+
+                <div id="form-div">
+                    <form name="pageForm">
+
+                        <label for="type">Choose a type:</label>
+                        <select id="type" name="type">
+                          <option value="Treadmill">Treadmill</option>
+                          <option value="Elliptical">Elliptical</option>
+                          <option value="Bike">Bike</option>
+                          <option value="Unknown Object">Unknown Object</option>
+                        </select>
+
+                        <label for="price">Price:</label>
+                        <input type="number" step="any" id="price" name="price" min="0" placeholder="Enter the price..." required>
+
+                        <button id="add-btn" name="add-btn" class="btn" type="submit">Add To List</button>
+
+                        <button id="display-btn" name="display-btn" class="btn" type="submit">Display Info</button>
+
+                    </form>
+
+                </div>
+
+                <div id="confirmation"></div>
+
+            </section>
+
+            <section id="table-section">
+                <table id="display">
+                    <!-- This is where my table will be added using innerHTML -->
+                </table>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="wrapper">
+            <p>&copy; Phillip Harden 2022</p>
+        </div>
+    </footer>
+
+    <!-- script tag is always at the bottom, always use defer but only in the main.js not every js file -->
+    <script defer src="js/main.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/factory.js"></script>
+    <script src="js/concreteclass.js"></script>
+
+</body>
+
+</html>

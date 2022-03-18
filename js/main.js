@@ -1,30 +1,54 @@
-// Phillip Harden
+// // Phillip Harden
 
-// Controller - Links the user and the system ################################################################################################
-class Controller {
+class Main {
     constructor() {
-        //Confirmation that the controller is working
-        console.log("Singleton / Controller created");
+        // create an array for my list of objects
+        this.equipList = [];
+        //Confirmation that the app is working
+        console.log("Main app created");
+        // event listener for for the Add Button is clicked
+        document.querySelector("#add-btn").addEventListener("click", e => this.addEquip(e));
+        // event listener for for the Done Button is clicked
+        document.querySelector("#display-btn").addEventListener("click", e => this.displayInfo(e));
 
-        this.model = new Model();
-        this.view = new View();
 
-        // event listener for for the Submit Button is clicked
-        document.querySelector("#submit").addEventListener("click", e => this.onClick(e));
+        // Add welcoming message in the confirmation div
+        const p = document.createElement("p");
+        const node = document.createTextNode("Welcome!");
+        p.appendChild(node);
+        const element = document.getElementById("confirmation");
+        element.appendChild(p);
+        p.id = "text-confirmation";
+
+        // Add welcoming image in the confirmation div
+        const image = new Image(200, 200);
+        image.src = "../images/running.png";
+        image.id = "img-confirmation";
+        image.alt = "woman running";
+        console.log("Image Loaded", image.height, image.width);
+
+        image.addEventListener("load", e => {
+            console.log("Image Loaded");
+            document.querySelector("#confirmation").appendChild(image)
+        });
     }
+    // Singleton
     static getInstance() {
         // Is there an instance variable attached to the class? If so, don't create. If not, then it's okay to create!
-        if (!Controller._instance) {
-            Controller._instance = new Controller();
-            return Controller._instance;
+        if (!Main._instance) {
+            Main._instance = new Main();
+            return Main._instance;
         } else {
             throw "Singleton has already been created!";
         }
     }
 
-    onClick(e) {
+    addEquip(e) {
+        // prevents from refreshing the page
+        e.preventDefault();
+
         // Confirmation of Submit being clicked
-        console.log("Submit was clicked");
+        console.log("Add was clicked");
 
         //Select all values from fields
         const data = document.querySelectorAll("input");
@@ -33,32 +57,54 @@ class Controller {
         if (this.validateForm(data)) {
             e.preventDefault();
 
-            // get the name entry value
-            let nameEntry = document.querySelector("#name").value;
-            // get the age entry value
-            const age = document.querySelector("#age").value;
-            // get the weight value
-            const weight = document.querySelector("#weight").value;
-            // get the height value
-            const height = document.querySelector("#height").value;
+            // get the type entry value
+            const type = document.querySelector("#type").value;
+            // get the price entry value
+            const price = Number(document.querySelector("#price").value);
 
-            // Instantiate an Event
-            let evt = new Event("controller_done");
+            // Instantiate an Equipment object
+            const equipObject = EquipmentFactory.creatEquipment(type);
+            equipObject.name = type;
+            equipObject.price = Number(price).toFixed(2);
+            equipObject.totalPrice = Utils.getTotalPrice(price);
+            this.equipList.push(equipObject);
 
-            // Instantiate a data object
-            evt.dataObject = new DataObject(nameEntry, age, weight, height);
+            // Remove current p with the id of "text-confirmation"
+            const p = document.getElementById("text-confirmation");
+            p.parentNode.removeChild(p);
 
-            // create an Array with the age, wieght & height that is attached to the event
-            evt.bmrData = [age, weight, height]
+            // Remove current image with the id of "img-confirmation"
+            const imageRemove = document.getElementById("img-confirmation");
+            imageRemove.parentNode.removeChild(imageRemove);
 
-            // Dispatch the event
-            document.dispatchEvent(evt);
+            // Send the new object's image source & name into the function to display confirmation
+            showImage(equipObject.image, equipObject.name);
+
+            function showImage(src, name) {
+                const added = " added!";
+                const p = document.createElement("p");
+                const node = document.createTextNode(name + added);
+                p.appendChild(node);
+                const element = document.getElementById("confirmation");
+                element.appendChild(p);
+                p.id = "text-confirmation";
+
+                const img = new Image();
+                img.src = src;
+                img.alt = name;
+                img.id = "img-confirmation";
+                document.getElementById("confirmation").appendChild(img);
+            }
+
+
 
             //After everything comes back here, the application will be finished
             console.log("End of application")
         } else {
             console.log("Form is invalid");
         }
+        //Reset the fields
+        this.resetFields();
     }
 
     // Validation method
@@ -71,96 +117,62 @@ class Controller {
         });
         return validate;
     }
-}
+    displayInfo(e) {
 
-// Model - Manages the data of an application ################################################################################################
-class Model {
-    constructor() {
-        console.log("Model created");
-        document.addEventListener("controller_done", e => this.process(e));
-    }
+        // Remove the confirmtion sections
+        // Remove current p with the id of "text-confirmation"
+        const p = document.getElementById("text-confirmation");
+        p.parentNode.removeChild(p);
+        // Remove current image with the id of "img-confirmation"
+        const imageRemove = document.getElementById("img-confirmation");
+        imageRemove.parentNode.removeChild(imageRemove);
 
-    // The Model class uses at least one static method from your custom Utility class
-    process(e) {
-        console.log("I hear you Controller, here are the array items: ", e.bmrData[0], e.bmrData[1], e.bmrData[2]);
-
-        // add the bmr to the data object after it gets calculated
-        e.dataObject.bmr = Utils.getBMR(e.bmrData[0], e.bmrData[1], e.bmrData[2]);
-
-        //Show that the BMR was calculated
-        console.log("BMR successfully calcualated: " + e.dataObject.bmr);
-
-        // Instantiate an Event
-        let evt = new Event("model_done");
-
-        // add the data object to the event
-        evt.dataObject = e.dataObject;
-        
-        // Dispatch the event
-        document.dispatchEvent(evt);
-    }
-}
-
-// View - A visual representation of the model (HTML) ################################################################################################
-class View {
-    constructor() {
-        console.log("View created");
-        // Listening for the "model_done" Event
-        document.addEventListener("model_done", e => this.display(e));
-    }
-
-    display(e) {
-        e.preventDefault();
-        console.log("I hear you Model, I'll display everything now!");
-
+        //clear the fields if they allready exist
+        document.getElementById('display').innerHTML = '';
         // Add the table header row
-        document.getElementById("table-section").innerHTML = '<table id="display"><tr><th>Name</th><th>Age</th><th>Weight</th><th>Height</th><th>BMR</th></tr></table>';
+        document.getElementById("table-section").innerHTML = '<table id="display"><tr><th>Type</th><th>Subtotal</th><th>Total (after tax)</th></tr></table>';
 
-        // Confirmation that the object values are displaying properly
-        console.log("Name: " + e.dataObject.name);
-        console.log("Age: " + e.dataObject.age);
-        console.log("Weight: " + e.dataObject.weight);
-        console.log("Height: " + e.dataObject.height);
-        console.log("BMR: " + e.dataObject.bmr);
+        // loop through the list of objects
+        this.equipList.forEach((o) => {
+            // Confirmation that the object values are displaying properly
+            console.log(o.name);
+            console.log(o.price);
+            console.log(o.totalPrice);
 
-        // the first row is index 0 which is the name of each cell (Name, Age, etc.)
-        let row = 1;
+            // the first row is index 0 which is the name of each cell (Name, Price, etc.)
+            let row = 1;
 
-        // accessing the table by the ID
-        let display = document.getElementById("display");
+            // accessing the table by the ID
+            let display = document.getElementById("display");
 
-        // insert a row into the table
-        let newRow = display.insertRow(row);
+            // insert a row into the table
+            let newRow = display.insertRow(row);
 
-        // give each cell a name
-        let cell1 = newRow.insertCell(0);
-        let cell2 = newRow.insertCell(1);
-        let cell3 = newRow.insertCell(2);
-        let cell4 = newRow.insertCell(3);
-        let cell5 = newRow.insertCell(4);
+            // give each cell a name
+            let cell1 = newRow.insertCell(0);
+            let cell2 = newRow.insertCell(1);
+            let cell3 = newRow.insertCell(2);
+            // let cell4 = newRow.insertCell(3);
 
-        // change the html of each cell
-        cell1.innerHTML = e.dataObject.name;
-        cell2.innerHTML = e.dataObject.age;
-        cell3.innerHTML = e.dataObject.weight;
-        cell4.innerHTML = e.dataObject.height;
-        cell5.innerHTML = e.dataObject.bmr;
+            // change the html of each cell
+            cell1.innerHTML = o.name;
+            cell2.innerHTML = "$"+o.price;
+            cell3.innerHTML = "$"+o.totalPrice;
 
-        //Reset the fields
-        this.resetFields();
+            // add another row
+            row++;
+            //Reset the fields
+            this.resetFields();
+        })
     }
-
+    // rest the price field
     resetFields() {
-        document.getElementById("name").value = "";
-        document.getElementById("age").value = "";
-        document.getElementById("weight").value = "";
-        document.getElementById("height").value = "";
+        document.getElementById("price").value = "";
     }
 }
 
-//###########################################################################################################################################################################
 // IIFE - Immediately Invoked Function Expression (needs to be at the bottom)
 (() => {
     //instantiate Singleton
-    const app = Controller.getInstance();
+    const app = Main.getInstance();
 })();

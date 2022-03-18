@@ -1,10 +1,9 @@
 /* COLORS 
-https://colorhunt.co/palette/064635519259f0bb62f4eea9
-#064635 -Very dark cyan - lime green
-#519259 - Mostly desaturated dark lime green
-#F0BB62 - Soft orange
-#F4EEA9 - Very soft yellow
-Whitesmoke: #F5F5F5
+https://colorhunt.co/palette/630606890f0de83a14d9ce3f
+#630606 : Very dark red
+#890F0D : Dark red
+#E83A14 : Vivid red
+#D9CE3F : Bright yellow
 */
 
 /* Google Fonts *************************/
@@ -50,21 +49,12 @@ html {
 }
 
 body {
-    /* background-color: #F4EEA9; */
-    color: #064635;
+    color: #630606;
     font: 1.8rem/2 'Cairo', sans-serif;
-    background: #F4EEA9 url(../images/background.png) no-repeat fixed center;
+    background-color: #630606;
+    background: #D9CE3F url(../images/background.png) no-repeat fixed center;
     /* Photo by Lukas from Pexels - Gray Dumbbell Beside Wall */
     background-size: cover;
-    /* background-position: center; */
-
-/* 
-    When using the shorthand property the order of the property values is:
-        background-color 
-        background-image 
-        background-repeat 
-        background-attachment 
-        background-position */
 }
 
 h1,
@@ -74,11 +64,12 @@ h4,
 h5,
 h6 {
     font-family: 'Bebas Neue', cursive;
-    color: #519259;
+    color: #630606;
 }
 
 h1 {
     font-size: 12rem;
+    color: #D9CE3F;
 }
 
 h2 {
@@ -99,7 +90,7 @@ button {
 /***HEADER******************************************/
 header {
     height: 20rem;
-    background-color: #F0BB62;
+    background-color: #890F0D;
     /* text-align: center; */
 }
 
@@ -115,33 +106,47 @@ p {
     text-align: center;
 }
 
+main section:nth-of-type(1) p {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+
 #form-div {
-    border: .2rem solid #064635;
+    border: .2rem solid #D9CE3F;
     border-radius: .5rem;
-    background-color: #519259;
+    background-color: #890F0D;
     padding: 2rem;
     width: 50%;
     margin: 3rem auto 0;
+    color: #D9CE3F;
 }
 
 input[type=text],
 input[type=number],
 select {
     color: #519259;
-    border: .2rem solid #F0BB62;
+    border: .2rem solid #E83A14;
     border-radius: 2rem;
     padding: .3rem 0 .3rem 1rem;
     width: 100%;
     margin: 8px 0;
     display: inline-block;
     box-sizing: border-box;
+    font-size: 1.8rem;
 }
 
+
+
+/* ::placeholder {
+    color: #E83A14;
+} */
+
 .btn {
-    color: #F0BB62;
-    background-color: #064635;
-    border: .2rem solid #F0BB62;
-    width: 12rem;
+    color: #D9CE3F;
+    background-color: #630606;
+    border: .2rem solid #E83A14;
+    width: 17.5rem;
     height: 4rem;
     border-radius: 2rem;
     margin: 2rem 5rem 1rem 0;
@@ -149,8 +154,8 @@ select {
 }
 
 .btn:hover {
-    color: #064635;
-    background-color: #F0BB62;
+    color: #D9CE3F;
+    background-color: #E83A14;
 }
 
 table {
@@ -158,13 +163,13 @@ table {
     /* width: 50%;
     height: 50%; */
     margin: 5rem auto;
-    background-color: #F0BB62;
+    background-color: #D9CE3F;
 }
 
 table,
 th,
 td {
-    border: .2rem solid #519259;
+    border: .2rem solid #E83A14;
     padding: .2rem 1rem;
 }
 
@@ -177,24 +182,35 @@ td {
     font-size: 2.5rem;
     color: #064635;
     text-align: center;
-    background-color: #F4EEA9;
+    background-color: #D9CE3F;
+}
+
+
+#confirmation p {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#confirmation img {
+    margin: 0 auto;
+    display: block;
 }
 
 /***FOOTER******************************************/
 footer {
     bottom: 0;
     width: 100%;
-    background-color: #519259;
-    color: white;
+    background-color: #D9CE3F;
+    color: #E83A14;
     text-align: center;
     margin: 50rem 0 0 0;
 }
 
 footer p {
     font-size: 1.4rem;
-    color: #F4EEA9;
+    color: #E83A14;
 }
 
 footer p:hover {
-    color: #F0BB62;
+    color: #890F0D;
 }
