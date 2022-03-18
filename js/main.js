@@ -156,8 +156,8 @@ class Main {
 
             // change the html of each cell
             cell1.innerHTML = o.name;
-            cell2.innerHTML = "$"+o.price;
-            cell3.innerHTML = "$"+o.totalPrice;
+            cell2.innerHTML = "$" + o.price;
+            cell3.innerHTML = "$" + o.totalPrice;
 
             // add another row
             row++;

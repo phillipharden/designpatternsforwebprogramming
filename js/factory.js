@@ -37,4 +37,3 @@ Stationary Bike : "Tired woman with hands down resting on cycling machine" Photo
 
 Background Image : Photo by gina lin on Unsplash https://unsplash.com/photos/m27OTMegUyA?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
 */
-
