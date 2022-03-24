@@ -1,0 +1,151 @@
+/* COLORS 
+https://colorhunt.co/palette/effffdb8fff985f4ff42c2ff
+#EFFFFD : Very pale (mostly white) cyan
+#B8FFF9 : Pale cyan
+#85F4FF : Very light cyan
+#42C2FF : Light blue
+*/
+
+/* Google Fonts *************************/
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=League+Gothic&display=swap');
+
+/* CSS Reset *********************************/
+body,
+nav,
+main,
+section,
+footer,
+article,
+form,
+button,
+textarea,
+button,
+input,
+h1,
+h2,
+h3,
+p,
+a,
+time,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 100%;
+    text-decoration: none;
+    font-weight: normal;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+/* Typography Defaults ********************/
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: #05415e;
+    font: 1.8rem/2 'League Gothic', sans-serif;
+    background-color: #EFFFFD;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Archivo Black', sans-serif;
+    color: #42C2FF;
+}
+
+h1 {
+    font-size: 8rem;
+    color: #B8FFF9;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+/* Default Structure **************************/
+.wrapper {
+    margin: 0 auto;
+    width: 120rem;
+}
+
+/***HEADER******************************************/
+header {
+    background-color: #42C2FF;
+}
+
+/***MAIN********************************************/
+main {
+    text-align: center;
+    margin: 0 0 50rem 0;
+}
+
+#movie-img {
+    width: 25rem;
+}
+
+#movie-title {
+    font-size: 4rem;
+}
+
+#movie-year {
+    font-size: 2rem;
+}
+
+#movie-rating {
+    font-size: 2.5rem;
+}
+
+#movie-duration {
+    font-size: 2rem;
+}
+
+
+#next {
+    color: #42C2FF;
+    background-color: #85F4FF;
+    border: .2rem solid #42C2FF;
+    width: 12rem;
+    height: 4rem;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    margin: 2rem 0 0 0;
+}
+
+#next:hover {
+    color: #85F4FF;
+    background-color: #42C2FF;
+}
+
+/***FOOTER******************************************/
+footer {
+    position: absolute;
+    width: 100%;
+    background-color: #B8FFF9;
+    text-align: center;
+    height: 2.5rem;
+}
+
+footer p {
+    font-size: 1.4rem;
+    color: #42C2FF;
+}
+
+footer p:hover {
+    color: #022636;
+}
