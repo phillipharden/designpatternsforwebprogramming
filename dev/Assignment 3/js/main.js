@@ -70,12 +70,8 @@ class Main {
             this.equipList.push(equipObject);
 
             // Remove the confirmtion sections
-            // Remove current p with the id of "text-confirmation"
-            const pRemove = document.getElementById("text-confirmation");
-            pRemove.parentNode.removeChild(pRemove);
-            // Remove current image with the id of "img-confirmation"
-            const imgRemove = document.getElementById("img-confirmation");
-            imgRemove.parentNode.removeChild(imgRemove);
+            // Remove eberything in the div with id of "confirmation"
+            document.getElementById('confirmation').innerHTML = '';
 
             // Send the new object's image source & name into the function to display confirmation
             showImage(equipObject.image, equipObject.name);

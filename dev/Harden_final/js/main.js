@@ -62,7 +62,7 @@ class Model {
         this.onLoaded(e);
     }
     onLoaded(e, movie) {
-        console.log("onLoaded");
+        console.log("onLoaded", movie, e);
         movie.title = data.movies[0].title;
         movie.duration = Utility.getTime(data.movies[0].duration);
         movie.rating = data.movies[0].rating;
