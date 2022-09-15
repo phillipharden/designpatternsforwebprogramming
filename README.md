@@ -212,10 +212,6 @@ For further research, check out the following resources
 * [https://www.techrepublic.com/article/preloading-and-the-javascript-image-object/](https://www.techrepublic.com/article/preloading-and-the-javascript-image-object/)
 * [https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image)
 
-## Data Visualization
 
-### Canvas API
-
-### Canvas Live Lecture / Demo
 
 
