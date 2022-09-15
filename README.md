@@ -1,5 +1,5 @@
 # Design Patterns for Web Programming
-## Term C202203
+
 
 ### Learning : Statics
 
